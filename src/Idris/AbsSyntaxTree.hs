@@ -1987,7 +1987,7 @@ pprintPTerm ppo bnd docArgs infixes = prettySe (ppopt_depth ppo) startPrec bnd
         [] -> annotate (AnnData "" "") $ text "[]"
         [x] -> enclose left right . group $ x
         xs -> enclose left right .
-              align . group . vsep .
+              align . group . fillSep .
               punctuate comma $ xs
       where left  = (annotate (AnnData "" "") (text "["))
             right = (annotate (AnnData "" "") (text "]"))
